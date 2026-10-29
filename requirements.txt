@@ -1,0 +1,4 @@
+fastapi[standard]>=0.115
+streamlit>=1.40
+requests>=2.32
+pytest>=8.0

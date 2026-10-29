@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: task-manager-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: DATABASE_PATH
+        value: /var/data/tasks.db
+    disk:
+      name: task-manager-data
+      mountPath: /var/data
+      sizeGB: 1
